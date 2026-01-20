@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Hero Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#F05624',
+                            dark: '#1a1a1a',
+                            gray: '#888888'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for specific visual tweaks */
+        .hero-gradient {
+            background: radial-gradient(circle at center, #8fbdfa 0%, #4a90e2 40%, #2563eb 100%);
+        }
+        .matrix-overlay {
+            background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .1) 25%, rgba(255, 255, 255, .1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .1) 75%, rgba(255, 255, 255, .1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .1) 25%, rgba(255, 255, 255, .1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .1) 75%, rgba(255, 255, 255, .1) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-900 antialiased">
+
+    <!-- Top Banner -->
+    <div class="bg-gray-100 text-xs py-2 px-4 relative">
+        <div class="max-w-7xl mx-auto flex justify-center items-center text-center">
+            <p class="text-gray-600">
+                We've raised $100M to build infrastructure for the web's second user. 
+                <a href="#" class="underline text-gray-800 hover:text-black ml-1">Read more.</a>
+            </p>
+        </div>
+        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="max-w-[1400px] mx-auto px-6 py-5 flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <a href="#" class="text-2xl font-extrabold tracking-tighter text-black">parallel</a>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-500">
+            <div class="group relative cursor-pointer flex items-center hover:text-black transition-colors">
+                <span>Products</span>
+                <svg class="w-3 h-3 ml-1 text-gray-400 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <a href="#" class="hover:text-black transition-colors">Pricing</a>
+            <a href="#" class="hover:text-black transition-colors">Benchmarks</a>
+            <a href="#" class="hover:text-black transition-colors">Blog</a>
+            <a href="#" class="hover:text-black transition-colors">Docs</a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center space-x-3">
+            <button class="bg-[#373737] hover:bg-black text-white text-[11px] font-mono py-1.5 px-3 rounded flex items-center transition-colors">
+                CONTACT
+                <span class="ml-2 bg-white/20 px-1 rounded text-[9px] min-w-[16px] text-center">C</span>
+            </button>
+            <button class="bg-brand-orange hover:bg-orange-600 text-white text-[11px] font-mono py-1.5 px-3 rounded flex items-center transition-colors">
+                LOG IN / SIGN UP
+                <span class="ml-2 bg-black/20 px-1 rounded text-[9px] min-w-[16px] text-center">P</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Content -->
+    <main class="max-w-[1400px] mx-auto px-6 pt-16 pb-12">
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-[3.5rem] leading-tight font-bold text-black mb-2 tracking-tight">
+                AIs are the web's new user
+            </h1>
+            <h2 class="text-5xl md:text-[3.5rem] leading-tight font-bold text-gray-400 tracking-tight">
+                The highest accuracy web search <span class="text-brand-orange">for your AI</span>
+            </h2>
+
+            <!-- CTA Button -->
+            <div class="mt-10">
+                <button class="group border border-gray-300 hover:border-gray-400 rounded px-4 py-2 flex items-center space-x-3 transition-colors bg-white">
+                    <span class="text-xs font-mono font-medium tracking-wide text-gray-800 uppercase">Start Building</span>
+                    <span class="bg-gray-200 text-gray-500 text-[10px] font-mono px-1.5 py-0.5 rounded border border-gray-300 group-hover:bg-gray-300 transition-colors">P</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Hero Image / Visualization -->
+    <div class="w-full px-6 pb-12">
+        <div class="relative w-full h-[600px] rounded-t-lg overflow-hidden hero-gradient">
+            
+            <!-- Background Matrix Effect Simulation (CSS Pattern + Overlay) -->
+            <div class="absolute inset-0 matrix-overlay opacity-20"></div>
+            
+            <!-- Simulated Text Rain (Static for visual match) -->
+            <div class="absolute inset-0 p-8 font-mono text-[10px] text-white/30 leading-4 overflow-hidden select-none pointer-events-none break-all">
+                H M I X R T V H J P Q W L A T U X Q P O Y B B X V Y I G Y P S B S M O R V W O N M H E N N R Z E R U T H S A J A V K A T L X C S J J O Q M A N N M J N D U Y W Y Z A H M O A A M D F E N M D D L C U M V B O Q M A G I M H F R V F V O W K F I F E R T N L S H D D S Z C L E A E C R K E Z T T A H F E O D L M M H R N Q J W O B K U K Y B C J F S P H X G K X S P E H V P P F D B A U I A Q N S V V D X Q O Y F I W R T N M Z L R B X H I S J B G H K N X U A N Z O T N Y I K S X F F Z Q R F G U X C M Q N C G I N Z B K K J K P D T Y D S N V X J H J S C I E A V H F C U J S Q S E Q G S L V R S Q Q K G P Q W S N U X Y L A F N S Q A J I O H F C L X J O E U J D R A Z A C B R G K B K J M V H O W A I L Q T J V Y S N T D F G O B B R W T Y R Y A Z R M D H C N Z U U I A U I B I Q O N D K Y R I Q F L R P F U E H Z V C N O K V K R U P Y T T W B R U U K Q V E V Z G U I M B X S N M M R L W O H D A B A K K B U U H M R X H Z A U K F K F N C
+                <br><br>
+                <!-- More random text to fill space -->
+                J N I M G L J K M G K Y F H X W X W D F L R F W S L S J L K Y K C C E M A X U K J X S J X C L H G W F U N P C Y Z V B E S C B U U H M U W N B X F O Y H X S R Q T V E Z D Q F C H M S K R Q S F R O K S D U S K J X V C C I U A D Z I T X D K M F T C V A Z K F I W Z R G P W T F A K Q X R F B
+            </div>
+
+            <!-- Center Glow -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 bg-blue-400/30 blur-[100px] rounded-full"></div>
+
+            <!-- Floating Pill Badge -->
+            <div class="absolute top-[65%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full py-2 pl-4 pr-2 shadow-xl flex items-center space-x-3 z-10">
+                <span class="font-mono text-xs font-bold text-gray-900 tracking-wide">A Parallel Web, for AIs</span>
+                <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">
+                    <!-- Icon representing the globe/lines -->
+                    <svg class="w-4 h-4 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                        <path d="M2 12h20"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Bottom Toggle -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-[#333] rounded-full p-1 flex items-center space-x-1 z-10">
+                <button class="flex items-center space-x-2 px-3 py-1 bg-white/10 rounded-full text-white text-[10px] font-medium tracking-wider">
+                    <div class="w-2 h-2 rounded-full bg-white border border-white">
+                        <div class="w-full h-full rounded-full bg-white"></div>
+                    </div>
+                    <span>HUMAN</span>
+                </button>
+                <button class="flex items-center space-x-2 px-3 py-1 text-gray-400 text-[10px] font-medium tracking-wider hover:text-white transition-colors">
+                    <div class="w-2 h-2 rounded-full border border-gray-500"></div>
+                    <span>MACHINE</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
