@@ -3,84 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallel - AI Web Search</title>
+    <title>Parallel - AIs are the web's new user</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            orange: '#FF5C28',
-                            dark: '#1A1A1A',
-                            gray: '#888888',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
-        /* Typography Utilities */
-        .text-balance { text-wrap: balance; }
-        .text-pretty { text-wrap: pretty; }
-
-        /* Animation keyframes */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-                filter: blur(4px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-                filter: blur(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.98);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        /* Base animation classes */
         .animate-fade-in-up {
             opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .animate-fade-in {
             opacity: 0;
-            animation: fadeIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .animate-scale-in {
             opacity: 0;
-            animation: scaleIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Staggered delays */
         .delay-0 { animation-delay: 0ms; }
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
@@ -88,124 +39,101 @@
         .delay-400 { animation-delay: 400ms; }
         .delay-500 { animation-delay: 500ms; }
         .delay-600 { animation-delay: 600ms; }
-        .delay-700 { animation-delay: 700ms; }
 
-        /* Custom Utilities */
-        .kbd-shortcut {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            line-height: 1;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-weight: 600;
+        .text-balance { text-wrap: balance; }
+        .text-pretty { text-wrap: pretty; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up, .animate-fade-in, .animate-scale-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Custom font family overrides to match the technical/clean aesthetic */
+        .font-mono-custom {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         }
     </style>
 </head>
-<body class="bg-white text-brand-dark antialiased overflow-x-hidden">
+<body class="bg-white text-[#111111] font-sans antialiased selection:bg-[#FF5A1F] selection:text-white overflow-x-hidden">
+
+    <!-- Top Banner -->
+    <div class="bg-[#E8F0FE] text-[#111111] py-2.5 px-4 flex justify-center items-center relative z-20 animate-fade-in delay-0">
+        <p class="text-[13px] font-medium text-center pr-8 md:pr-0">
+            We've raised $100M to build infrastructure for the web's second user. <a href="#" class="underline hover:text-black transition-colors">Read more</a>.
+        </p>
+        <button class="absolute right-4 text-[#888888] hover:text-[#111111] transition-colors" aria-label="Close banner">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L9 9M9 1L1 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
 
     <!-- Navigation -->
-    <nav class="w-full max-w-[1400px] mx-auto px-6 py-5 flex items-center justify-between">
+    <header class="w-full max-w-[1440px] mx-auto px-6 md:px-10 py-6 flex items-center justify-between animate-fade-in delay-0 relative z-10">
+        
         <!-- Logo -->
-        <div class="flex-shrink-0 animate-fade-in delay-0">
-            <a href="#" class="text-2xl font-extrabold tracking-tight">parallel</a>
-        </div>
+        <a href="#" class="flex-shrink-0" aria-label="Parallel Home">
+            <span class="text-[24px] font-black tracking-tighter text-[#111111]">parallel</span>
+        </a>
 
-        <!-- Desktop Links -->
-        <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
-            <a href="#" class="hover:text-black transition-colors flex items-center gap-1 animate-fade-in delay-100">
-                Products 
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </a>
-            <a href="#" class="hover:text-black transition-colors animate-fade-in delay-100">Pricing</a>
-            <a href="#" class="hover:text-black transition-colors animate-fade-in delay-200">Benchmarks</a>
-            <a href="#" class="hover:text-black transition-colors animate-fade-in delay-200">Blog</a>
-            <a href="#" class="hover:text-black transition-colors animate-fade-in delay-300">Docs</a>
-            <a href="#" class="hover:text-black transition-colors animate-fade-in delay-300">About</a>
-        </div>
+        <!-- Center Links -->
+        <nav class="hidden lg:flex items-center space-x-8">
+            <div class="relative group cursor-pointer flex items-center gap-1.5">
+                <span class="text-[11px] font-mono-custom uppercase tracking-[0.1em] text-[#888888] hover:text-[#111111] transition-colors duration-200">Products</span>
+                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-[#888888] group-hover:text-[#111111] transition-colors duration-200">
+                    <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <a href="#" class="text-[11px] font-mono-custom uppercase tracking-[0.1em] text-[#888888] hover:text-[#111111] transition-colors duration-200">Pricing</a>
+            <a href="#" class="text-[11px] font-mono-custom uppercase tracking-[0.1em] text-[#888888] hover:text-[#111111] transition-colors duration-200">Benchmarks</a>
+            <a href="#" class="text-[11px] font-mono-custom uppercase tracking-[0.1em] text-[#888888] hover:text-[#111111] transition-colors duration-200">Blog</a>
+            <a href="#" class="text-[11px] font-mono-custom uppercase tracking-[0.1em] text-[#888888] hover:text-[#111111] transition-colors duration-200">Docs</a>
+            <a href="#" class="text-[11px] font-mono-custom uppercase tracking-[0.1em] text-[#888888] hover:text-[#111111] transition-colors duration-200">About</a>
+        </nav>
 
-        <!-- Auth Buttons -->
-        <div class="flex items-center gap-3 animate-fade-in delay-300">
-            <button class="hidden sm:flex bg-[#333333] hover:bg-black text-white text-[11px] font-bold px-3 py-2 rounded items-center gap-2 transition-colors tracking-wide">
-                CONTACT
-                <span class="kbd-shortcut bg-[#4d4d4d] text-gray-200 border border-gray-600">C</span>
+        <!-- Right Actions -->
+        <div class="flex items-center space-x-3">
+            <button class="hidden md:flex items-center gap-3 bg-[#333333] text-white px-5 py-2.5 rounded-[4px] hover:opacity-90 transition-all duration-200 active:scale-97">
+                <span class="text-[11px] font-mono-custom uppercase tracking-[0.1em]">Contact</span>
+                <span class="flex items-center justify-center w-[18px] h-[18px] rounded-[3px] bg-white/10 text-[9px] font-mono-custom text-white/80">C</span>
             </button>
-            <button class="bg-brand-orange hover:bg-orange-600 text-white text-[11px] font-bold px-3 py-2 rounded flex items-center gap-2 transition-colors tracking-wide">
-                LOG IN
-                <span class="kbd-shortcut bg-orange-400/50 text-white border border-white/20">P</span>
+            <button class="flex items-center gap-3 bg-[#FF5A1F] text-white px-5 py-2.5 rounded-[4px] hover:opacity-90 transition-all duration-200 active:scale-97">
+                <span class="text-[11px] font-mono-custom uppercase tracking-[0.1em]">Log In</span>
+                <span class="flex items-center justify-center w-[18px] h-[18px] rounded-[3px] bg-black/15 text-[9px] font-mono-custom text-white/90">P</span>
             </button>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <main class="max-w-[1400px] mx-auto px-6 mt-16 lg:mt-24 pb-20">
+    <main class="w-full max-w-[1440px] mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-24">
         
-        <!-- Text Content -->
-        <div class="max-w-5xl">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight animate-fade-in-up delay-200 text-balance">
+        <!-- Hero Text -->
+        <div class="max-w-[1000px]">
+            <h1 class="text-[44px] sm:text-[52px] md:text-[60px] leading-[1.1] tracking-tight font-medium text-[#111111] mb-1 animate-fade-in-up delay-100">
                 AIs are the web's new user
             </h1>
-            
-            <h2 class="text-4xl md:text-5xl lg:text-[64px] leading-[1.1] font-medium tracking-tight mb-10 animate-fade-in-up delay-300 text-balance">
-                <span class="text-[#999999]">The highest accuracy web search</span> <span class="text-brand-orange">for your AI</span>
+            <h2 class="text-[44px] sm:text-[52px] md:text-[60px] leading-[1.1] tracking-tight font-medium text-[#888888] mb-8 animate-fade-in-up delay-200">
+                The highest accuracy web search <span class="text-[#FF5A1F]">for your AI</span>
             </h2>
-
-            <div class="animate-fade-in-up delay-400">
-                <button class="group border border-gray-200 hover:border-gray-300 hover:bg-gray-50 bg-white text-xs font-mono py-2.5 px-4 rounded flex items-center gap-3 transition-all shadow-sm">
-                    START BUILDING
-                    <span class="bg-gray-100 border border-gray-200 text-gray-500 rounded px-1.5 py-0.5 text-[10px] font-sans font-bold group-hover:bg-gray-200 transition-colors">P</span>
+            
+            <div class="animate-fade-in-up delay-300">
+                <button class="flex items-center gap-3 bg-white border border-[#E5E5E5] text-[#111111] px-5 py-2.5 rounded-[4px] hover:bg-gray-50 transition-all duration-200 active:scale-97 shadow-sm">
+                    <span class="text-[11px] font-mono-custom uppercase tracking-[0.1em] font-medium">Start Building</span>
+                    <span class="flex items-center justify-center w-[18px] h-[18px] rounded-[3px] bg-[#F5F5F5] border border-[#E5E5E5] text-[9px] font-mono-custom text-[#888888]">P</span>
                 </button>
             </div>
         </div>
 
-        <!-- Hero Visual / Graphic -->
-        <div class="relative w-full mt-16 rounded-xl overflow-hidden aspect-[16/9] md:aspect-[2/1] lg:aspect-[2.2/1] animate-scale-in delay-500 shadow-sm group">
-            
-            <!-- Background Image (Placeholder for the blue matrix data visualization) -->
-            <img src="https://placehold.co/1400x700/4a88e6/ffffff?text=+" alt="Data Visualization Background" class="w-full h-full object-cover absolute inset-0 z-0 opacity-0" onload="this.classList.remove('opacity-0')">
-            
-            <!-- CSS Gradient Overlay to simulate the blue look if placeholder isn't perfect, or to enhance it -->
-            <div class="absolute inset-0 bg-gradient-to-br from-[#3b82f6] via-[#60a5fa] to-[#93c5fd] z-0 mix-blend-multiply opacity-90"></div>
-            
-            <!-- Faint text texture simulation (optional decorative elements) -->
-            <div class="absolute inset-0 z-0 opacity-20 pointer-events-none overflow-hidden font-mono text-[10px] text-white leading-none p-4 select-none">
-                <div class="grid grid-cols-12 gap-4 h-full w-full opacity-30">
-                    <!-- Just decorative columns of random chars to simulate the matrix effect -->
-                    <div class="hidden md:block break-words">0 L Z E F W Q K X W Z K S L I O G U Z G A D O S</div>
-                    <div class="hidden md:block break-words">C T W C K N Z G S T F G A V O X Q O L F P C W X</div>
-                    <div class="col-span-8"></div>
-                    <div class="hidden md:block break-words text-right">A G F M H C J C R Q F F I E X X N C I S N D O W</div>
-                    <div class="hidden md:block break-words text-right">M V F E A F N D D G V V L J T C P J X V N E D P</div>
-                </div>
-            </div>
-
-            <!-- Center Badge -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-                <div class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-white/50 flex items-center gap-3 animate-fade-in delay-700">
-                    <span class="font-mono text-xs font-medium tracking-wide text-gray-800">A Parallel Web, for AIs</span>
-                    <div class="w-5 h-5 rounded-full bg-gray-800 flex items-center justify-center">
-                        <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom Toggle -->
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-                <div class="bg-[#2a2a2a] p-1 rounded-md flex items-center shadow-xl animate-fade-in delay-700 border border-white/10">
-                    <button class="flex items-center gap-2 px-3 py-1.5 bg-[#444] rounded text-[10px] font-bold text-white tracking-wider shadow-sm">
-                        <div class="w-2 h-2 rounded-full bg-white border-2 border-gray-400"></div>
-                        HUMAN
-                    </button>
-                    <button class="flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold text-gray-400 tracking-wider hover:text-white transition-colors">
-                        <div class="w-2 h-2 rounded-full border border-gray-500"></div>
-                        MACHINE
-                    </button>
-                </div>
-            </div>
-
-            <!-- Light Glow Effect at bottom center -->
-            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-white/20 blur-[80px] rounded-full pointer-events-none z-0"></div>
+        <!-- Hero Image -->
+        <div class="mt-16 w-full animate-scale-in delay-400">
+            <img 
+                src="https://placehold.co/1360x600/4A90E2/ffffff?text=AI+Web+Search+Visualization" 
+                alt="Visualization of AI web search infrastructure" 
+                class="w-full h-auto object-cover"
+            />
         </div>
 
     </main>
